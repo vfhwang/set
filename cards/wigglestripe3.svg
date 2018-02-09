@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" viewBox="0 0 250 350" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>wigglestripe3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 40.2985075 160 0 160 59.7014925 0 100"></polygon>
+        <polygon id="path-3" points="0 40.2985075 160 0 160 59.7014925 0 100"></polygon>
+        <polygon id="path-5" points="0 40.2985075 160 0 160 59.7014925 0 100"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="wigglestripe3">
+            <g id="Group-2" transform="translate(45.000000, 43.000000)">
+                <g id="Group">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <path stroke="#D8D8D8" stroke-width="5" d="M2.5,42.2469195 L2.5,96.7922596 L157.5,57.7530805 L157.5,3.2077404 L2.5,42.2469195 Z"></path>
+                    <g id="stripes" mask="url(#mask-2)" fill="#D8D8D8">
+                        <g transform="translate(-38.000000, -125.000000)" id="Rectangle-2">
+                            <rect x="0" y="0" width="5" height="350"></rect>
+                            <rect x="10" y="0" width="5" height="350"></rect>
+                            <rect x="20" y="0" width="5" height="350"></rect>
+                            <rect x="30" y="0" width="5" height="350"></rect>
+                            <rect x="40" y="0" width="5" height="350"></rect>
+                            <rect x="50" y="0" width="5" height="350"></rect>
+                            <rect x="60" y="0" width="5" height="350"></rect>
+                            <rect x="70" y="0" width="5" height="350"></rect>
+                            <rect x="80" y="0" width="5" height="350"></rect>
+                            <rect x="90" y="0" width="5" height="350"></rect>
+                            <rect x="100" y="0" width="5" height="350"></rect>
+                            <rect x="110" y="0" width="5" height="350"></rect>
+                            <rect x="120" y="0" width="5" height="350"></rect>
+                            <rect x="130" y="0" width="5" height="350"></rect>
+                            <rect x="140" y="0" width="5" height="350"></rect>
+                            <rect x="150" y="0" width="5" height="350"></rect>
+                            <rect x="160" y="0" width="5" height="350"></rect>
+                            <rect x="170" y="0" width="5" height="350"></rect>
+                            <rect x="180" y="0" width="5" height="350"></rect>
+                            <rect x="190" y="0" width="5" height="350"></rect>
+                            <rect x="200" y="0" width="5" height="350"></rect>
+                            <rect x="210" y="0" width="5" height="350"></rect>
+                            <rect x="220" y="0" width="5" height="350"></rect>
+                            <rect x="230" y="0" width="5" height="350"></rect>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group-Copy" transform="translate(0.000000, 82.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <path stroke="#D8D8D8" stroke-width="5" d="M2.5,42.2469195 L2.5,96.7922596 L157.5,57.7530805 L157.5,3.2077404 L2.5,42.2469195 Z"></path>
+                    <g id="stripes" mask="url(#mask-4)" fill="#D8D8D8">
+                        <g transform="translate(-38.000000, -125.000000)" id="Rectangle-2">
+                            <rect x="0" y="0" width="5" height="350"></rect>
+                            <rect x="10" y="0" width="5" height="350"></rect>
+                            <rect x="20" y="0" width="5" height="350"></rect>
+                            <rect x="30" y="0" width="5" height="350"></rect>
+                            <rect x="40" y="0" width="5" height="350"></rect>
+                            <rect x="50" y="0" width="5" height="350"></rect>
+                            <rect x="60" y="0" width="5" height="350"></rect>
+                            <rect x="70" y="0" width="5" height="350"></rect>
+                            <rect x="80" y="0" width="5" height="350"></rect>
+                            <rect x="90" y="0" width="5" height="350"></rect>
+                            <rect x="100" y="0" width="5" height="350"></rect>
+                            <rect x="110" y="0" width="5" height="350"></rect>
+                            <rect x="120" y="0" width="5" height="350"></rect>
+                            <rect x="130" y="0" width="5" height="350"></rect>
+                            <rect x="140" y="0" width="5" height="350"></rect>
+                            <rect x="150" y="0" width="5" height="350"></rect>
+                            <rect x="160" y="0" width="5" height="350"></rect>
+                            <rect x="170" y="0" width="5" height="350"></rect>
+                            <rect x="180" y="0" width="5" height="350"></rect>
+                            <rect x="190" y="0" width="5" height="350"></rect>
+                            <rect x="200" y="0" width="5" height="350"></rect>
+                            <rect x="210" y="0" width="5" height="350"></rect>
+                            <rect x="220" y="0" width="5" height="350"></rect>
+                            <rect x="230" y="0" width="5" height="350"></rect>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group-Copy-2" transform="translate(0.000000, 164.000000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <path stroke="#D8D8D8" stroke-width="5" d="M2.5,42.2469195 L2.5,96.7922596 L157.5,57.7530805 L157.5,3.2077404 L2.5,42.2469195 Z"></path>
+                    <g id="stripes" mask="url(#mask-6)" fill="#D8D8D8">
+                        <g transform="translate(-38.000000, -125.000000)" id="Rectangle-2">
+                            <rect x="0" y="0" width="5" height="350"></rect>
+                            <rect x="10" y="0" width="5" height="350"></rect>
+                            <rect x="20" y="0" width="5" height="350"></rect>
+                            <rect x="30" y="0" width="5" height="350"></rect>
+                            <rect x="40" y="0" width="5" height="350"></rect>
+                            <rect x="50" y="0" width="5" height="350"></rect>
+                            <rect x="60" y="0" width="5" height="350"></rect>
+                            <rect x="70" y="0" width="5" height="350"></rect>
+                            <rect x="80" y="0" width="5" height="350"></rect>
+                            <rect x="90" y="0" width="5" height="350"></rect>
+                            <rect x="100" y="0" width="5" height="350"></rect>
+                            <rect x="110" y="0" width="5" height="350"></rect>
+                            <rect x="120" y="0" width="5" height="350"></rect>
+                            <rect x="130" y="0" width="5" height="350"></rect>
+                            <rect x="140" y="0" width="5" height="350"></rect>
+                            <rect x="150" y="0" width="5" height="350"></rect>
+                            <rect x="160" y="0" width="5" height="350"></rect>
+                            <rect x="170" y="0" width="5" height="350"></rect>
+                            <rect x="180" y="0" width="5" height="350"></rect>
+                            <rect x="190" y="0" width="5" height="350"></rect>
+                            <rect x="200" y="0" width="5" height="350"></rect>
+                            <rect x="210" y="0" width="5" height="350"></rect>
+                            <rect x="220" y="0" width="5" height="350"></rect>
+                            <rect x="230" y="0" width="5" height="350"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

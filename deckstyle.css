@@ -1,0 +1,266 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* END RESET */
+
+body{
+  background-color: #0A0227;
+}
+
+#deck{
+  margin:50px auto;
+  max-width:800px;
+}
+
+
+.card
+{
+  width:150px;
+  height:210px;
+  margin:10px;
+  border-radius:10px;
+	float:left;
+	background-color: white;
+	padding: 0px;
+}
+
+.clicked{
+  background-color: #FEFFDC;
+}
+
+
+.cardinner{
+  width:100%;
+  height:100%;
+  -webkit-mask-size:cover;
+
+}
+
+/* COLORS */
+
+.cardinner.red{
+  background-color: #FF2255;
+}
+
+.cardinner.green{
+  background-color: #00E78A;
+}
+
+.cardinner.purple{
+  background-color: #821BFF;
+}
+
+/* SYMBOL */
+
+.cardinner.diamond{
+    -webkit-mask-image: url(cards/diamondsolid1.png);
+    mask-image: url(cards/diamondsolid1.png);
+}
+
+.cardinner.squiggle{
+  -webkit-mask-image: url(cards/wigglesolid1.png);
+  mask-image: url(cards/wigglesolid1.png);
+
+}
+
+.cardinner.oval{
+  -webkit-mask-image: url(cards/roundedsolid1.png);
+  mask-image: url(cards/roundedsolid1.png);
+
+}
+
+
+.cardinner.diamond.two{
+    -webkit-mask-image: url(cards/diamondsolid2.png);
+    mask-image: url(cards/diamondsolid1.png);
+}
+
+.cardinner.squiggle.two{
+  -webkit-mask-image: url(cards/wigglesolid2.png);
+  mask-image: url(cards/wigglesolid1.png);
+
+}
+
+.cardinner.oval.two{
+  -webkit-mask-image: url(cards/roundedsolid2.png);
+  mask-image: url(cards/roundedsolid1.png);
+
+}
+
+.cardinner.diamond.three{
+    -webkit-mask-image: url(cards/diamondsolid3.png);
+    mask-image: url(cards/diamondsolid1.png);
+}
+
+.cardinner.squiggle.three{
+  -webkit-mask-image: url(cards/wigglesolid3.png);
+  mask-image: url(cards/wigglesolid1.png);
+
+}
+
+.cardinner.oval.three{
+  -webkit-mask-image: url(cards/roundedsolid3.png);
+  mask-image: url(cards/roundedsolid1.png);
+
+}
+
+/* STROKE */
+
+
+.cardinner.diamond.stroke{
+    -webkit-mask-image: url(cards/diamondstroke1.png);
+    mask-image: url(cards/diamondstroke1.png);
+}
+
+.cardinner.squiggle.stroke{
+  -webkit-mask-image: url(cards/wigglestroke1.png);
+  mask-image: url(cards/wigglestroke1.png);
+
+}
+
+.cardinner.oval.stroke{
+  -webkit-mask-image: url(cards/roundedstroke1.png);
+  mask-image: url(cards/roundedstroke1.png);
+
+}
+
+
+.cardinner.diamond.two.stroke{
+    -webkit-mask-image: url(cards/diamondstroke2.png);
+    mask-image: url(cards/diamondstroke1.png);
+}
+
+.cardinner.squiggle.two.stroke{
+  -webkit-mask-image: url(cards/wigglestroke2.png);
+  mask-image: url(cards/wigglestroke1.png);
+
+}
+
+.cardinner.oval.two.stroke{
+  -webkit-mask-image: url(cards/roundedstroke2.png);
+  mask-image: url(cards/roundedstroke1.png);
+
+}
+
+.cardinner.diamond.three.stroke{
+    -webkit-mask-image: url(cards/diamondstroke3.png);
+    mask-image: url(cards/diamondstroke1.png);
+}
+
+.cardinner.squiggle.three.stroke{
+  -webkit-mask-image: url(cards/wigglestroke3.png);
+  mask-image: url(cards/wigglestroke1.png);
+
+}
+
+.cardinner.oval.three.stroke{
+  -webkit-mask-image: url(cards/roundedstroke3.png);
+  mask-image: url(cards/roundedstroke1.png);
+
+}
+
+
+/* STRIPE */
+
+
+.cardinner.diamond.stripe{
+    -webkit-mask-image: url(cards/diamondstripe1.png);
+    mask-image: url(cards/diamondstripe1.png);
+}
+
+.cardinner.squiggle.stripe{
+  -webkit-mask-image: url(cards/wigglestripe1.png);
+  mask-image: url(cards/wigglestripe1.png);
+
+}
+
+.cardinner.oval.stripe{
+  -webkit-mask-image: url(cards/roundedstripe1.png);
+  mask-image: url(cards/roundedstripe1.png);
+
+}
+
+
+.cardinner.diamond.two.stripe{
+    -webkit-mask-image: url(cards/diamondstripe2.png);
+    mask-image: url(cards/diamondstripe1.png);
+}
+
+.cardinner.squiggle.two.stripe{
+  -webkit-mask-image: url(cards/wigglestripe2.png);
+  mask-image: url(cards/wigglestripe1.png);
+
+}
+
+.cardinner.oval.two.stripe{
+  -webkit-mask-image: url(cards/roundedstripe2.png);
+  mask-image: url(cards/roundedstripe1.png);
+
+}
+
+.cardinner.diamond.three.stripe{
+    -webkit-mask-image: url(cards/diamondstripe3.png);
+    mask-image: url(cards/diamondstripe1.png);
+}
+
+.cardinner.squiggle.three.stripe{
+  -webkit-mask-image: url(cards/wigglestripe3.png);
+  mask-image: url(cards/wigglestripe1.png);
+
+}
+
+.cardinner.oval.three.stripe{
+  -webkit-mask-image: url(cards/roundedstripe3.png);
+  mask-image: url(cards/roundedstripe1.png);
+
+}
