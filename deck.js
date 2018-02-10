@@ -35,7 +35,7 @@ function shuffle() {
 }
 
 function renderDeck() {
-	for (var i = 0; i < 32; i++) {
+	for (var i = 0; i < 16; i++) {
 		var card = document.createElement("div");
 		var cardinner = document.createElement("div");
 		var cardcolor = document.createElement("div");
@@ -52,14 +52,6 @@ function renderDeck() {
 		cardinner.className += deck[i].Cardsymbol;
 		cardinner.className += " ";
 		cardinner.className += deck[i].Cardfill;
-		// cardcolor.className = deck[i].Cardcolor;
-		// cardnum.className = deck[i].Cardnum;
-		// cardsymbol.className = deck[i].Cardsymbol;
-		// cardfill.className = deck[i].Cardfill;
-		//
-		// card.appendChild(cardnum);
-		// card.appendChild(cardsymbol);
-		// card.appendChild(cardfill);
 		document.getElementById("deck").appendChild(card);
 	}
 }
@@ -75,31 +67,25 @@ var clickedCardz = [];
 
 function numberChecker(number) {
 	if (compareClicks[0][number] === compareClicks[1][number] && compareClicks[0][number] === compareClicks[2][number] || compareClicks[0][number] !== compareClicks[1][number] && compareClicks[0][number] !== compareClicks[2][number] && compareClicks[1][number] !== compareClicks[2][number]) {
-		console.log("you clicked on a set!");
 		return true
 	} else {
-		console.log("that wasn't a set")
 		return false
 	}
 }
 
 function checkCorrect() {
 	var checkingAllCombos = [];
-
 	for (var i = 1; i <= 4; i++) {
 		checkingAllCombos.push(numberChecker(i));
-		console.log("counter went up by 1")
 	};
-
-  var isAllTrue = true;
-  for (var k = 0; k < checkingAllCombos.length; k++) {
-    if(checkingAllCombos[k] == false) {
-      isAllTrue = false;
-    }
-  }
-
+	var isAllTrue = true;
+	for (var k = 0; k < checkingAllCombos.length; k++) {
+		if (checkingAllCombos[k] == false) {
+			isAllTrue = false;
+		}
+	}
 	checkingAllCombos = [];
-  return isAllTrue;
+	return isAllTrue;
 };
 //
 // function checkCorrect(){
@@ -124,81 +110,53 @@ function clicktrack() {
 		return element.parentNode && hasSomeParentTheClass(element.parentNode, classname);
 	}
 	window.onclick = function(e) {
-		// for (var i=0; i<2;){
+			var classListForComparedClicks = e.srcElement.className.split(/\s+/);
+			var element = e.srcElement;
+			if (element.classList.contains("cardinner")) {
+				e.srcElement.parentNode.classList.add('clicked');
+				compareClicks.push(classListForComparedClicks);
+			}
+			if (compareClicks.length == 3) {
+				if (checkCorrect()) {
+					setTimeout(celebration, 1000);
 
-    // var classList = e.srcElement.classList;
+					function celebration() {
+						var nodeArray = document.getElementsByClassName('clicked');
+						var clickedCards = [];
+						for (var i = 0; i < nodeArray.length; ++i) {
+							clickedCards[i] = nodeArray[i];
+						}
+						for (var cl = 0; cl < clickedCards.length; cl++) {
+							clickedCards[cl].classList.add('yeahbaby');
+							clickedCards[cl].classList.remove('clicked');
+							// setTimeout(redeal, 1000);
+						}
+						console.log('set success!');
+					}
+				} else {
+					setTimeout(notaset, 200);
 
-    var classListForComparedClicks = e.srcElement.className.split(/\s+/);
-    // compareClicks.push(classListForComparedClicks);
+					function notaset() {
+						var nodeArray = document.getElementsByClassName('clicked');
+						var clickedCards = [];
+						for (var i = 0; i < nodeArray.length; ++i) {
+							clickedCards[i] = nodeArray[i];
+						}
+						for (var cl = 0; cl < clickedCards.length; cl++) {
+							clickedCards[cl].classList.add('ohdear');
+							clickedCards[cl].classList.remove('clicked');
+						}
+						function clearcards(){
+							for (var cl = 0; cl < clickedCards.length; cl++) {
+								clickedCards[cl].classList.remove('ohdear');
+							}
+						}
+						setTimeout(clearcards, 1000);
+						console.log('set failure!');
+						compareClicks = [];
+					};
+				};
+			};
 
-    var element = e.srcElement;
-
-    // if(element.classList.contains('cardinner') && )
-
-
-
-		// if (classList.includes("cardinner") && classList.includes("clicked")) {
-		// 	// e.srcElement.classList.remove("clicked");
-		// 	// e.srcElement.parentNode.classList.remove("clicked");
-		// 	// compareClicks = [];
-		// 	// console.log("fuck");
-		// } else
-    if (element.classList.contains("cardinner")) {
-			// e.srcElement.className += " clicked";
-			e.srcElement.parentNode.classList.add('clicked');
-			compareClicks.push(classListForComparedClicks);
-			clickedCardz.push(e.srcElement);
-			// i++
-			// }
-			// console.log(compareClicks);
-			// compareClicks = [];
-		}
-
-		if (compareClicks.length == 3) {
-
-      if(checkCorrect()) {
-        console.log('set success!');
-      } else {
-        console.log('set failure!');
-      }
-
-      var clickedCards = document.getElementsByClassName('clicked');
-      for (var cl = 0; cl < clickedCards.length; cl++) {
-        clickedCards[cl].classList.remove('clicked');
-      }
-
-      for (var cl = 0; cl < clickedCards.length; cl++) {
-        clickedCards[cl].classList.remove('clicked');
-      }
-
-      for (var cl = 0; cl < clickedCards.length; cl++) {
-        clickedCards[cl].classList.remove('clicked');
-      }
-
-      compareClicks = [];
-
-			// // clickedCards.forEach();
-			// // cardsToUnclick.classList.remove("clicked");
-			// console.log("success!");
-			// if (checkCorrect()) {
-			// 	var clickedCards = document.getElementsByClassName("clicked");
-			// 	for (var i = 0; i < clickedCards.length; i++) {
-			// 		clickedCards[i].classList.remove("clicked");
-			// 		// clickedCards[i].parentNode.removeChild(clickedCards);
-			// 		// clickedCards[i].parentNode.classList.remove("clicked");
-			// 		i = 0;
-			// 	}
-			// 	console.log("set success!");
-			// } else {
-			// 	var clickedCards = document.getElementsByClassName("clicked");
-			// 	for (var i = 0; i < clickedCards.length; i++) {
-			// 		clickedCards[i].classList.remove("clicked");
-			// 		// clickedCards[i].parentNode.removeChild(clickedCards);
-			// 		// clickedCards[i].parentNode.classList.remove("clicked");
-			// 		i = 0;
-			// 	}
-			// 	console.log("set failure!");
-			// }
 		}
 	}
-}
