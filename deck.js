@@ -3,6 +3,8 @@ var cardcolor = ["red", "green", "purple"];
 var cardnum = ["one", "two", "three"];
 var cardsymbol = ["diamond", "squiggle", "oval"];
 var cardfill = ["solid", "stripe", "stroke"];
+var onCardNumber = [];
+
 
 function getDeck() {
 	var deck = new Array();
@@ -33,26 +35,61 @@ function shuffle() {
 		deck[location2] = tmp;
 	}
 }
+function dealCard(i){
+var card = document.createElement("div");
+var cardinner = document.createElement("div");
+var cardcolor = document.createElement("div");
+var cardnum = document.createElement("div");
+var cardsymbol = document.createElement("div");
+var cardfill = document.createElement("div");
+card.appendChild(cardinner);
+card.className = "card";
+cardinner.className = "cardinner ";
+cardinner.className += deck[i].Cardcolor;
+cardinner.className += " ";
+cardinner.className += deck[i].Cardnum;
+cardinner.className += " ";
+cardinner.className += deck[i].Cardsymbol;
+cardinner.className += " ";
+cardinner.className += deck[i].Cardfill;
+document.getElementById("deck").appendChild(card);
+onCardNumber = [i+1]
+};
+
+function replaceCards(clickedCard){
+replaceCard(clickedCard);
+}
+
+function replaceCard(card){
+
+
+	var element = card;
+	while (element.firstChild) {
+	  element.removeChild(element.firstChild);
+	}
+
+	var cardinner = document.createElement("div");
+
+	card.appendChild(cardinner);
+
+	cardinner.className = "cardinner ";
+	cardinner.className += deck[onCardNumber].Cardcolor;
+	cardinner.className += " ";
+	cardinner.className += deck[onCardNumber].Cardnum;
+	cardinner.className += " ";
+	cardinner.className += deck[onCardNumber].Cardsymbol;
+	cardinner.className += " ";
+	cardinner.className += deck[onCardNumber].Cardfill;
+	document.getElementById("deck").appendChild(card);
+
+
+	onCardNumber = [Number(onCardNumber)+1]
+	console.log(onCardNumber)
+};
 
 function renderDeck() {
 	for (var i = 0; i < 16; i++) {
-		var card = document.createElement("div");
-		var cardinner = document.createElement("div");
-		var cardcolor = document.createElement("div");
-		var cardnum = document.createElement("div");
-		var cardsymbol = document.createElement("div");
-		var cardfill = document.createElement("div");
-		card.appendChild(cardinner);
-		card.className = "card";
-		cardinner.className = "cardinner ";
-		cardinner.className += deck[i].Cardcolor;
-		cardinner.className += " ";
-		cardinner.className += deck[i].Cardnum;
-		cardinner.className += " ";
-		cardinner.className += deck[i].Cardsymbol;
-		cardinner.className += " ";
-		cardinner.className += deck[i].Cardfill;
-		document.getElementById("deck").appendChild(card);
+		dealCard(i)
 	}
 }
 
@@ -61,6 +98,7 @@ function load() {
 	shuffle();
 	renderDeck();
 	clicktrack();
+
 }
 var compareClicks = [];
 var clickedCardz = [];
@@ -117,7 +155,9 @@ function clicktrack() {
 				compareClicks.push(classListForComparedClicks);
 			}
 			if (compareClicks.length == 3) {
-				if (checkCorrect()) {
+				if (
+					// checkCorrect()
+				true === true) {
 					setTimeout(celebration, 1000);
 
 					function celebration() {
@@ -129,9 +169,22 @@ function clicktrack() {
 						for (var cl = 0; cl < clickedCards.length; cl++) {
 							clickedCards[cl].classList.add('yeahbaby');
 							clickedCards[cl].classList.remove('clicked');
-							// setTimeout(redeal, 1000);
+							// setTimeout(replaceCards(clickedCards[cl]), 1000);
+						}
+						setTimeout(replaceEachCard(), 1000);
+
+						function replaceEachCard(){
+						for (var cl = 0; cl < clickedCards.length; cl++) {
+							replaceCards(clickedCards[cl])
+							clickedCards[cl].classList.remove('yeahbaby');
 						}
 						console.log('set success!');
+						clickedCards = [];
+						compareClicks = [];
+
+						}
+
+
 					}
 				} else {
 					setTimeout(notaset, 200);
