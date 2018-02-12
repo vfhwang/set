@@ -3,7 +3,8 @@ var cardcolor = ["red", "green", "purple"];
 var cardnum = ["one", "two", "three"];
 var cardsymbol = ["diamond", "squiggle", "oval"];
 var cardfill = ["solid", "stripe", "stroke"];
-var onCardNumber = [];
+var onCardNumber = 0;
+var wins = 0;
 
 
 function getDeck() {
@@ -44,17 +45,20 @@ var cardsymbol = document.createElement("div");
 var cardfill = document.createElement("div");
 card.appendChild(cardinner);
 card.className = "card";
-cardinner.className = "cardinner ";
-cardinner.className += deck[i].Cardcolor;
-cardinner.className += " ";
-cardinner.className += deck[i].Cardnum;
-cardinner.className += " ";
-cardinner.className += deck[i].Cardsymbol;
-cardinner.className += " ";
-cardinner.className += deck[i].Cardfill;
+cardinner.classList.add("cardinner");
+cardinner.classList.add(deck[i].Cardcolor);
+cardinner.classList.add(deck[i].Cardnum);
+cardinner.classList.add(deck[i].Cardsymbol);
+cardinner.classList.add(deck[i].Cardfill);
 document.getElementById("deck").appendChild(card);
-onCardNumber = [i+1]
+onCardNumber++
 };
+
+function addThreeCards(){
+	for (var i = 0; i < 3; i++) {
+		dealCard(onCardNumber)
+	}
+}
 
 function replaceCards(clickedCard){
 replaceCard(clickedCard);
@@ -88,7 +92,7 @@ function replaceCard(card){
 };
 
 function renderDeck() {
-	for (var i = 0; i < 16; i++) {
+	for (var i = 0; i < 12; i++) {
 		dealCard(i)
 	}
 }
@@ -155,9 +159,7 @@ function clicktrack() {
 				compareClicks.push(classListForComparedClicks);
 			}
 			if (compareClicks.length == 3) {
-				if (
-					// checkCorrect()
-				true === true) {
+				if (checkCorrect()) {
 					setTimeout(celebration, 1000);
 
 					function celebration() {
@@ -181,7 +183,9 @@ function clicktrack() {
 						console.log('set success!');
 						clickedCards = [];
 						compareClicks = [];
-
+						wins++;
+						console.log(wins);
+						document.getElementById('wins').innerHTML = wins;
 						}
 
 

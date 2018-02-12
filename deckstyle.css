@@ -58,18 +58,55 @@ body{
 }
 
 #deck{
-  margin:50px auto;
-  max-width:800px;
+  /*margin:50px auto;*/
+	width:50%;
+	height:100%;
+	display:flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 
+@media (orientation:landscape){
+	#deck{
+	flex-direction: row;
+}
 
-.card
-{
-  width:150px;
-  height:210px;
-  margin:10px;
-  border-radius:10px;
-	float:left;
+};
+
+
+#setsscored{
+	position:fixed;
+	/*background-color:#35189D;*/
+	width:21.4vh;
+	height: 32vh;
+	bottom:1vh;
+	right:1vw;
+
+}
+
+#setsscored p{
+	color:#ffffff;
+	text-align: center;
+	font-family: sans-serif;
+	text-transform: uppercase;
+}
+
+#wins{
+	font-size:16vh;
+	font-weight: 800;
+}
+
+#setsscoredinner{
+	padding:2vh;
+}
+
+.card{
+	/*transform:rotate(90deg);*/
+  width:21.4vh;
+  height: 32vh;
+  margin:1vh 0 0 1vh;
+	/*float:left;*/
 	background-color: white;
 	padding: 0px;
 }
