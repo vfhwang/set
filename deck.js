@@ -4,7 +4,7 @@ var cardnum = ["one", "two", "three"];
 var cardsymbol = ["diamond", "squiggle", "oval"];
 var cardfill = ["solid", "stripe", "stroke"];
 var onCardNumber = 0;
-var wins = 0;
+var wins = 10;
 
 
 function getDeck() {
@@ -58,6 +58,9 @@ function addThreeCards(){
 	for (var i = 0; i < 3; i++) {
 		dealCard(onCardNumber)
 	}
+	wins-=5;
+	console.log(wins);
+	document.getElementById('wins').innerHTML = wins;
 }
 
 function replaceCards(clickedCard){
@@ -75,20 +78,24 @@ function replaceCard(card){
 	var cardinner = document.createElement("div");
 
 	card.appendChild(cardinner);
+	cardinner.classList.add("cardinner");
+	cardinner.classList.add(deck[onCardNumber].Cardcolor);
+	cardinner.classList.add(deck[onCardNumber].Cardnum);
+	cardinner.classList.add(deck[onCardNumber].Cardsymbol);
+	cardinner.classList.add(deck[onCardNumber].Cardfill);
 
-	cardinner.className = "cardinner ";
-	cardinner.className += deck[onCardNumber].Cardcolor;
-	cardinner.className += " ";
-	cardinner.className += deck[onCardNumber].Cardnum;
-	cardinner.className += " ";
-	cardinner.className += deck[onCardNumber].Cardsymbol;
-	cardinner.className += " ";
-	cardinner.className += deck[onCardNumber].Cardfill;
 	document.getElementById("deck").appendChild(card);
-
-
-	onCardNumber = [Number(onCardNumber)+1]
+	onCardNumber++
 	console.log(onCardNumber)
+};
+
+function removeCard(card){
+
+
+	var element = card;
+	  element.parentNode.removeChild(element);
+
+	console.log("removeCard activiated")
 };
 
 function renderDeck() {
@@ -163,34 +170,50 @@ function clicktrack() {
 					setTimeout(celebration, 1000);
 
 					function celebration() {
-						var nodeArray = document.getElementsByClassName('clicked');
+						var nodeArrayClicked = document.getElementsByClassName('clicked');
 						var clickedCards = [];
-						for (var i = 0; i < nodeArray.length; ++i) {
-							clickedCards[i] = nodeArray[i];
+						for (var i = 0; i < nodeArrayClicked.length; ++i) {
+							clickedCards[i] = nodeArrayClicked[i];
 						}
 						for (var cl = 0; cl < clickedCards.length; cl++) {
 							clickedCards[cl].classList.add('yeahbaby');
 							clickedCards[cl].classList.remove('clicked');
-							// setTimeout(replaceCards(clickedCards[cl]), 1000);
 						}
+
+						var nodeArrayCards = document.getElementsByClassName('card');
+						var howManyCards = [];
+						for (var i = 0; i < nodeArrayCards.length; ++i) {
+							howManyCards[i] = nodeArrayCards[i];
+						}
+						if(howManyCards.length < 13){
+
 						setTimeout(replaceEachCard(), 1000);
+					} else{
+						setTimeout(removeEachCard(), 1000);
+					};
+
 
 						function replaceEachCard(){
 						for (var cl = 0; cl < clickedCards.length; cl++) {
-							replaceCards(clickedCards[cl])
+							replaceCard(clickedCards[cl])
 							clickedCards[cl].classList.remove('yeahbaby');
 						}
+						}
+						function removeEachCard(){
+							for (var cl = 0; cl < clickedCards.length; cl++) {
+								removeCard(clickedCards[cl])
+						}
+						}
+
+
 						console.log('set success!');
 						clickedCards = [];
 						compareClicks = [];
-						wins++;
+						wins+=10;
 						console.log(wins);
 						document.getElementById('wins').innerHTML = wins;
 						}
-
-
-					}
-				} else {
+					} else {
 					setTimeout(notaset, 200);
 
 					function notaset() {
