@@ -6,6 +6,7 @@ var cardfill = ["solid", "stripe", "stroke"];
 var onCardNumber = 0;
 var wins = 10;
 
+// Building the deck
 
 function getDeck() {
 	var deck = new Array();
@@ -27,6 +28,8 @@ function getDeck() {
 	return deck;
 }
 
+//Shuffling the deck
+
 function shuffle() {
 	for (var i = 0; i < 1000; i++) {
 		var location1 = Math.floor((Math.random() * deck.length))
@@ -36,6 +39,23 @@ function shuffle() {
 		deck[location2] = tmp;
 	}
 }
+
+function renderDeck() {
+	for (var i = 0; i < 12; i++) {
+		dealCard(i)
+	}
+}
+
+function load() {
+	deck = getDeck();
+	shuffle();
+	renderDeck();
+	clicktrack();
+
+}
+
+//Dealing a single card
+
 function dealCard(i){
 var card = document.createElement("div");
 var cardinner = document.createElement("div");
@@ -54,14 +74,19 @@ document.getElementById("deck").appendChild(card);
 onCardNumber++
 };
 
+//Dealing three cards
+
 function addThreeCards(){
 	for (var i = 0; i < 3; i++) {
 		dealCard(onCardNumber)
 	}
+
 	wins-=5;
 	console.log(wins);
 	document.getElementById('wins').innerHTML = wins;
 }
+
+
 
 function replaceCards(clickedCard){
 replaceCard(clickedCard);
@@ -89,6 +114,7 @@ function replaceCard(card){
 	console.log(onCardNumber)
 };
 
+
 function removeCard(card){
 
 
@@ -98,19 +124,6 @@ function removeCard(card){
 	console.log("removeCard activiated")
 };
 
-function renderDeck() {
-	for (var i = 0; i < 12; i++) {
-		dealCard(i)
-	}
-}
-
-function load() {
-	deck = getDeck();
-	shuffle();
-	renderDeck();
-	clicktrack();
-
-}
 var compareClicks = [];
 var clickedCardz = [];
 
@@ -136,35 +149,28 @@ function checkCorrect() {
 	checkingAllCombos = [];
 	return isAllTrue;
 };
-//
-// function checkCorrect(){
-//   (compareClicks[0][1] === compareClicks[1][1] && compareClicks[0][1] === compareClicks[2][1]
-//   || compareClicks[0][1] !== compareClicks[1][1] && compareClicks[0][1] !== compareClicks[2][1] && compareClicks[1][1] !== compareClicks[2][1])
-//   &&
-//   (compareClicks[0][2] === compareClicks[1][2] && compareClicks[0][2] === compareClicks[2][2]
-//   || compareClicks[0][2] !== compareClicks[1][2] && compareClicks[0][2] !== compareClicks[2][2] && compareClicks[1][2] !== compareClicks[2][2])
-//   &&
-//   (compareClicks[0][3] === compareClicks[1][3] && compareClicks[0][3] === compareClicks[2][3]
-//   || compareClicks[0][3] !== compareClicks[1][3] && compareClicks[0][3] !== compareClicks[2][3] && compareClicks[1][3] !== compareClicks[2][3])
-//   &&
-//   (compareClicks[0][4] === compareClicks[1][4] && compareClicks[0][4] === compareClicks[2][4]
-//   || compareClicks[0][4] !== compareClicks[1][4] && compareClicks[0][4] !== compareClicks[2][4] && compareClicks[1][4] !== compareClicks[2][4])
-//
-// };
+
 window.onload = load;
 
 function clicktrack() {
-	function hasSomeParentTheClass(element, classname) {
-		if (element.className.split(' ').indexOf(classname) >= 0) return true;
-		return element.parentNode && hasSomeParentTheClass(element.parentNode, classname);
-	}
+	// function hasSomeParentTheClass(element, classname) {
+	// 	if (element.className.split(' ').indexOf(classname) >= 0) return true;
+	// 	return element.parentNode && hasSomeParentTheClass(element.parentNode, classname);
+	// }
+
 	window.onclick = function(e) {
 			var classListForComparedClicks = e.srcElement.className.split(/\s+/);
+			// var classListForIfAlreadyClicked = e.parentNode.srcElement.className.split(/\s+/);
 			var element = e.srcElement;
-			if (element.classList.contains("cardinner")) {
-				e.srcElement.parentNode.classList.add('clicked');
+			if (element.parentNode.classList.contains("clicked")) {
+				element.parentNode.classList.remove("clicked");
+				compareClicks.splice(-1,1)
+
+			} else if(element.classList.contains("cardinner")) {
+				element.parentNode.classList.add('clicked');
 				compareClicks.push(classListForComparedClicks);
 			}
+
 			if (compareClicks.length == 3) {
 				if (checkCorrect()) {
 					setTimeout(celebration, 1000);
@@ -240,3 +246,27 @@ function clicktrack() {
 
 		}
 	}
+
+	// window.onload = addListeners;
+	//
+	// function addListeners(){
+	//     document.getElementById('dxy').addEventListener('mousedown', mouseDown, false);
+	//     window.addEventListener('mouseup', mouseUp, false);
+	//
+	// }
+	//
+	// function mouseUp()
+	// {
+	//     window.removeEventListener('mousemove', divMove, true);
+	// }
+	//
+	// function mouseDown(e){
+	//   window.addEventListener('mousemove', divMove, true);
+	// }
+	//
+	// function divMove(e){
+	//     var div = document.getElementById('dxy');
+	//   div.style.position = 'absolute';
+	//   div.style.top = e.clientY + 'px';
+	//   div.style.left = e.clientX + 'px';
+	// }​
